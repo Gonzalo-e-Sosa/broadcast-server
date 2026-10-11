@@ -28,5 +28,5 @@ This project was created using `bun init` in bun v1.4.3. [Bun](https://bun.com) 
 - [x] Handle client disconnections and remove the client from the list of connected clients.
 - [x] Implement a client that can connect to the server and send messages.
 - [x] Test the server by connecting multiple clients and sending messages.
-- [ ] Implement error handling and graceful shutdown of the server.
+- [x] Implement error handling and graceful shutdown of the server.
 

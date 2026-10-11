@@ -47,10 +47,21 @@ const server: Bun.Server<WebSocketData> = Bun.serve({
             console.log(`Socket is ready to receive more data: ${ws.data.username}`);
         },
         // a socket is closed
-        close(ws, code, message) {
+        close(ws) {
             connectedClients.delete(ws);
             console.log(`Client disconnected: ${ws.data.username}`);
         },
+        ping(ws, data) {
+            console.log(`Ping received from ${ws.data.username}: ${data}`);
+        },
+        pong(ws, data) {
+            console.log(`Pong received from ${ws.data.username}: ${data}`);
+        }
+    },
+    error(error) {
+        console.error(`Server error: ${error}`);
+
+        return new Response("Internal Server Error", { status: 500 });
     }
 });
 
